@@ -1,6 +1,11 @@
 .sdg-goals-index {
+  .section-header,
+  .banner {
+    @include full-width-background($adjust-padding: true);
+  }
 
   .section-header {
+    @include full-width-border(bottom, 1px solid #eee, $adjust-padding: true);
 
     h1 {
       &::before {
