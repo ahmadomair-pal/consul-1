@@ -1,3 +1,4 @@
+
 <% if can?(:stats, @poll) || can?(:results, @poll) %>
   <div class="row margin-top">
     <div class="small-12 column">
@@ -5,10 +6,11 @@
         <% if can?(:results, @poll) %>
           <% if results_menu? %>
             <li class="is-active">
+
               <h2><%= t("polls.show.results_menu") %></h2>
             </li>
           <% else %>
-            <li><%= link_to t("polls.show.results_menu"), results_poll_path(id: @poll.slug || @poll.id) %></li>
+            <li><%= link_to t("polls.show.results_menu"), results_poll_path(id: @poll.id || @poll.id) %></li>
           <% end %>
         <% end %>
 
@@ -18,7 +20,7 @@
               <h2><%= t("polls.show.stats_menu") %></h2>
             </li>
           <% else %>
-            <li><%= link_to t("polls.show.stats_menu"), stats_poll_path(id: @poll.slug || @poll.id) %></li>
+            <li><%= link_to t("polls.show.stats_menu"), stats_poll_path(id: @poll.id || @poll.id) %></li>
           <% end %>
         <% end %>
 
@@ -27,7 +29,7 @@
             <h2><%= t("polls.show.info_menu") %></h2>
           </li>
         <% else %>
-          <li><%= link_to t("polls.show.info_menu"), poll_path(id: @poll.slug || @poll.id) %></li>
+          <li><%= link_to t("polls.show.info_menu"), poll_path(id: @poll.id || @poll.id) %></li>
         <% end %>
       </ul>
     </div>
